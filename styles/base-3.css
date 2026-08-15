@@ -58,7 +58,7 @@ blockquote{margin:0;width:min(560px,78vw);min-height:220px;border:1px solid var(
 .mobile-copy>p:not(.eyebrow){max-width:650px;color:var(--muted);font-size:18px}
 .check-list li:before{content:"↳";color:var(--amber);margin-right:12px}
 .phone-status{height:42px;display:flex;justify-content:space-between;align-items:center;padding:0 18px;color:#8d867e;font-size:10px}
-.phone-screen h3{font-size:52px;line-height:.92;letter-spacing:-.055em;margin:160px 0 14px}
+.phone-screen h3{font-size:clamp(36px,4.2vw,46px);line-height:.94;letter-spacing:-.055em;margin:160px 0 14px;max-width:100%}
 .phone-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
 .phone-sticky{margin-top:8px;background:var(--text);color:#111;border-radius:22px;min-height:56px;padding:0 18px;display:flex;align-items:center;justify-content:space-between;font-weight:600}
 .booking-step b{font-size:17px}
