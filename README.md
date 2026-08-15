@@ -19,7 +19,7 @@ https://mishkastrategy.github.io/1845/
 - GitHub Actions + GitHub Pages
 - no production image hotlinks
 
-Проект намеренно не использует тяжёлый runtime и сторонние UI-зависимости: коммерческое предложение остаётся статическим, быстрым и легко разворачивается под `/1845/`. Содержательные секции разделены на четыре HTML-фрагмента и собираются `boot.js`.
+Проект намеренно не использует тяжёлый runtime и сторонние UI-зависимости: коммерческое предложение остаётся статическим, быстрым и легко разворачивается под `/1845/`. Содержательные секции разделены на HTML-фрагменты и собираются `boot.js`.
 
 ## Local run
 
@@ -83,9 +83,9 @@ python3 -m http.server 4173
 
 ## Deployment
 
-Push в `main` запускает `.github/workflows/pages.yml`, который публикует статический сайт через GitHub Pages artifact deployment.
+GitHub Pages использует ветку `gh-pages`, корень `/`.
 
-Repository Settings → Pages должен использовать **GitHub Actions** как источник публикации.
+Push в `main` запускает `.github/workflows/pages.yml`, который синхронизирует актуальный commit из `main` в `gh-pages`. После этого GitHub Pages автоматически публикует новую версию сайта.
 
 ## Status
 
@@ -96,4 +96,5 @@ Repository Settings → Pages должен использовать **GitHub Act
 - [x] accessibility baseline
 - [x] editable commercial config
 - [x] GitHub Actions workflow
+- [x] GitHub Pages enabled
 - [x] static production package
