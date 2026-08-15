@@ -1,27 +1,27 @@
-# 1845 — коммерческое предложение
+# 1845 — commercial proposal / 18:45
 
-Интерактивное коммерческое предложение для **1845 Lounge Bar, Новосибирск**. Это не официальный сайт заведения, а презентация возможного следующего digital-этапа бренда.
-
-## Design concept — 18:45
-
-**18:45 — момент переключения из рабочего дня в свой вечер.** Концепция использует timestamps, minute marks, типографику времени и постепенный переход от более холодного дневного состояния к тёплому вечернему.
-
-Визуальный язык: тёплый графит, off-white, приглушённый amber и глубокий wine. Без black + gold luxury, клубного неона и случайных stock-фотографий.
+Интерактивное коммерческое предложение для **1845 Lounge Bar, Новосибирск, Большевистская 132 / Европейский Берег**.
 
 ## Production
 
 https://mishkastrategy.github.io/1845/
 
+## Design concept — 18:45
+
+**18:45 — момент переключения из рабочего дня в свой вечер.** Визуальная система строится на времени, minute marks, timestamps, тёплом переходе «день → вечер» и editorial-типографике. Это не официальный гостевой сайт, а B2B-презентация будущего digital-образа 1845.
+
 ## Stack
 
-- semantic HTML5
-- modern CSS
+- semantic HTML5 fragments
+- modular CSS custom properties + responsive layout
 - vanilla JavaScript
+- IntersectionObserver / progressive motion
 - GitHub Actions + GitHub Pages
+- no production image hotlinks
 
-Стек намеренно лёгкий: статическое коммерческое предложение не требует runtime-фреймворка, получает минимальный JS и корректно работает из подпапки `/1845/`.
+Проект намеренно не использует тяжёлый runtime и сторонние UI-зависимости: коммерческое предложение остаётся статическим, быстрым и легко разворачивается под `/1845/`. Содержательные секции разделены на четыре HTML-фрагмента и собираются `boot.js`.
 
-## Запуск локально
+## Local run
 
 ```bash
 python3 -m http.server 4173
@@ -29,78 +29,71 @@ python3 -m http.server 4173
 
 Открыть `http://localhost:4173`.
 
-## Структура
+## Structure
 
 ```text
 .
-├── index.html
-├── styles.css
-├── script.js
+├── .github/workflows/pages.yml
 ├── assets/
 │   ├── favicon.svg
 │   └── og.svg
-├── src/
-│   └── content/
-│       └── offer.js
-└── .github/
-    └── workflows/
-        └── pages.yml
+├── fragments/
+│   ├── 01.html
+│   ├── 02.html
+│   ├── 03.html
+│   ├── 04a.html
+│   └── 04b.html
+├── styles/
+│   ├── base-1.css
+│   ├── base-2.css
+│   ├── base-3.css
+│   └── responsive.css
+├── src/content/offer.js
+├── index.html
+├── boot.js
+├── script.js
+└── README.md
 ```
 
-## Коммерческие условия
+## Commercial config
 
-Цена, срок, скидка, схема оплаты и состав пакета сведены в:
+Все изменяемые коммерческие условия собраны в `src/content/offer.js`:
 
-`src/content/offer.js`
+- price
+- discount
+- timeline
+- payment
+- package
+- note
 
-До утверждения scope интерфейс показывает человеческую формулировку без технических placeholders.
+Публичная страница не показывает технические placeholders.
 
-## Что реализовано
+## Sources / research
 
-- research dashboard 1845;
-- сильные стороны продукта и voice of customer;
-- аудит текущего digital-разрыва;
-- сценарии первого визита, компании, дня рождения и постоянного гостя;
-- ключевой экран `18:45 — switch to evening`;
-- prototype-like screens будущего сайта;
-- предлагаемая архитектура официального сайта;
-- animated customer flow;
-- mobile-first concept;
-- короткий booking prototype;
-- local digital ecosystem;
-- scope + optional modules;
-- before / after outcomes без fake growth metrics;
-- 7-недельный roadmap;
-- editable offer;
-- финальный CTA с возвратом к 18:45;
-- responsive rules от 320 px;
-- `prefers-reduced-motion`, focus states и touch-friendly controls.
+Аудит проведён 15.08.2026 по публичным источникам:
 
-## Источники исследования
+- 2ГИС — карточка и отзывы 1845 Lounge Bar, Новосибирск
+- Яндекс Карты — отзывы и карточка Lounge Bar 1845
+- текущий сайт `deusvox.ru/loungebar1845`
+- публичные контакты Telegram / social profiles, указанные в картах и открытых профилях
+- локальные market references: Мята Lounge, HookahPlace, Bad Habits
+- hospitality references: Soho House, Scarfes Bar, The Standard / Sweeties
 
-Материалы использовались только как фактическая база и объект аудита; существующий дизайн не копировался.
-
-- 2ГИС — 1845 Lounge Bar, Большевистская 132;
-- 2ГИС — 1845 магазин по тому же адресу;
-- Яндекс Карты — отзывы и карточка;
-- текущий сайт — https://deusvox.ru/loungebar1845;
-- публичные ссылки 1845 из карточек бизнеса (Telegram / social);
-- локальные конкурентные ориентиры: Мята Lounge, HookahPlace, Bad Habits;
-- hospitality references: Soho House, Scarfes Bar, The Standard.
-
-Production не hotlink-ит изображения из 2ГИС и не использует случайные stock-фотографии. Визуальная система построена на типографике, CSS-графике и собственных интерфейсных mockups.
+Фотографии из 2ГИС/карт не скачиваются и не используются как production assets. Концепция завершена на собственной typographic / abstract visual system.
 
 ## Deployment
 
-Workflow `.github/workflows/pages.yml`:
+Push в `main` запускает `.github/workflows/pages.yml`, который публикует статический сайт через GitHub Pages artifact deployment.
 
-1. checkout;
-2. configure GitHub Pages;
-3. upload static artifact;
-4. deploy to Pages.
-
-Все локальные assets используют относительные пути, поэтому deployment корректен под `/1845/`.
+Repository Settings → Pages должен использовать **GitHub Actions** как источник публикации.
 
 ## Status
 
-**Production-ready proposal.** Финальные коммерческие цифры и конкретный контакт для CTA меняются после согласования с заказчиком.
+- [x] research / strategy
+- [x] concept copy
+- [x] responsive implementation
+- [x] motion + reduced-motion mode
+- [x] accessibility baseline
+- [x] editable commercial config
+- [x] GitHub Actions workflow
+- [x] static production package
