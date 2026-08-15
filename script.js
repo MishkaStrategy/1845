@@ -109,7 +109,7 @@
   document.querySelector('.booking-submit')?.addEventListener('click', (e) => {
     const btn = e.currentTarget;
     const original = btn.innerHTML;
-    btn.innerHTML = 'Prototype only <span>✓</span>';
+    btn.innerHTML = 'Это прототип <span>✓</span>';
     setTimeout(() => { btn.innerHTML = original; }, 1400);
   });
 
