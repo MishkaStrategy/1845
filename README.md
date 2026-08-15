@@ -8,7 +8,7 @@ https://mishkastrategy.github.io/1845/
 
 ## Design concept — 18:45
 
-**18:45 — момент переключения из рабочего дня в свой вечер.** Визуальная система строится на времени, minute marks, timestamps, тёплом переходе «день → вечер» и editorial-типографике. Это не официальный гостевой сайт, а B2B-презентация будущего digital-образа 1845.
+**18:45 — момент переключения из рабочего дня в свой вечер.** Визуальная система строится на времени, minute marks, timestamps, тёплом переходе «день → вечер» и editorial-типографике. Это B2B-презентация будущего digital-образа 1845, а не официальный гостевой сайт.
 
 ## Stack
 
@@ -16,18 +16,28 @@ https://mishkastrategy.github.io/1845/
 - modular CSS custom properties + responsive layout
 - vanilla JavaScript
 - IntersectionObserver / progressive motion
+- zero third-party runtime dependencies
 - GitHub Actions + GitHub Pages
-- no production image hotlinks
 
-Проект намеренно не использует тяжёлый runtime и сторонние UI-зависимости: коммерческое предложение остаётся статическим, быстрым и легко разворачивается под `/1845/`. Содержательные секции разделены на HTML-фрагменты и собираются `boot.js`.
+## Production build
 
-## Local run
+Исходники остаются модульными в `fragments/`, но production **не зависит от JavaScript для загрузки контента**. `build.mjs` заранее собирает пять HTML-фрагментов в `dist/index.html`, после чего workflow публикует только `dist/` в `gh-pages`.
+
+Это даёт:
+
+- полноценный HTML на первом ответе;
+- меньше сетевых запросов;
+- более устойчивый SEO/crawler fallback;
+- отсутствие boot-зависимости для основного контента;
+- чистую production-ветку без README/workflow/source fragments.
+
+## Commands
 
 ```bash
-python3 -m http.server 4173
+npm run check
+npm run build
+python3 -m http.server 4173 -d dist
 ```
-
-Открыть `http://localhost:4173`.
 
 ## Structure
 
@@ -36,7 +46,8 @@ python3 -m http.server 4173
 ├── .github/workflows/pages.yml
 ├── assets/
 │   ├── favicon.svg
-│   └── og.svg
+│   ├── og.svg
+│   └── og.png
 ├── fragments/
 │   ├── 01.html
 │   ├── 02.html
@@ -49,52 +60,28 @@ python3 -m http.server 4173
 │   ├── base-3.css
 │   └── responsive.css
 ├── src/content/offer.js
+├── build.mjs
+├── package.json
 ├── index.html
 ├── boot.js
-├── script.js
-└── README.md
+└── script.js
 ```
+
+`boot.js` остаётся удобным development-loader для исходной оболочки. В production он не используется.
 
 ## Commercial config
 
-Все изменяемые коммерческие условия собраны в `src/content/offer.js`:
+Все изменяемые коммерческие условия собраны в `src/content/offer.js`: `price`, `discount`, `timeline`, `payment`, `package`, `note`.
 
-- price
-- discount
-- timeline
-- payment
-- package
-- note
+## Audit status
 
-Публичная страница не показывает технические placeholders.
+После production-аудита исправлены:
 
-## Sources / research
-
-Аудит проведён 15.08.2026 по публичным источникам:
-
-- 2ГИС — карточка и отзывы 1845 Lounge Bar, Новосибирск
-- Яндекс Карты — отзывы и карточка Lounge Bar 1845
-- текущий сайт `deusvox.ru/loungebar1845`
-- публичные контакты Telegram / social profiles, указанные в картах и открытых профилях
-- локальные market references: Мята Lounge, HookahPlace, Bad Habits
-- hospitality references: Soho House, Scarfes Bar, The Standard / Sweeties
-
-Фотографии из 2ГИС/карт не скачиваются и не используются как production assets. Концепция завершена на собственной typographic / abstract visual system.
-
-## Deployment
-
-GitHub Pages использует ветку `gh-pages`, корень `/`.
-
-Push в `main` запускает `.github/workflows/pages.yml`, который синхронизирует актуальный commit из `main` в `gh-pages`. После этого GitHub Pages автоматически публикует новую версию сайта.
-
-## Status
-
-- [x] research / strategy
-- [x] concept copy
-- [x] responsive implementation
-- [x] motion + reduced-motion mode
-- [x] accessibility baseline
-- [x] editable commercial config
-- [x] GitHub Actions workflow
-- [x] GitHub Pages enabled
-- [x] static production package
+- static-first production rendering;
+- social preview PNG 1200×630;
+- accordion semantics (`aria-controls`, region panels, explicit button types);
+- motion pause control for the review marquee;
+- focus states and skip-link target;
+- low-contrast helper text;
+- mobile phone CTA selector;
+- clean `dist` deployment to `gh-pages`.

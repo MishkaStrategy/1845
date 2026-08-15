@@ -1,4 +1,4 @@
-html{scroll-behavior:smooth;background:var(--bg)}
+html{scroll-behavior:smooth;scroll-padding-top:86px;background:var(--bg)}
 button,a{font:inherit}
 a{color:inherit;text-decoration:none}
 button{color:inherit}
@@ -12,7 +12,8 @@ button{color:inherit}
 .hero-time{grid-column:1/13;font-size:clamp(110px,18vw,315px);line-height:.74;font-weight:850;letter-spacing:-.09em;display:flex;align-items:center;overflow:hidden}
 .eyebrow{margin:0 0 14px;color:var(--amber);font-size:11px;text-transform:uppercase;letter-spacing:.18em}
 .lead{max-width:760px;color:#cbc4ba;font-size:clamp(17px,1.5vw,23px);margin:28px 0 0;line-height:1.45}
-.button:focus-visible,.topbar a:focus-visible,.accordion-row:focus-visible{outline:2px solid #fff;outline-offset:4px}
+a:focus-visible,button:focus-visible{outline:2px solid #fff;outline-offset:4px}
+#main:focus{outline:none}
 .button.full{width:100%}
 .microcopy{color:var(--muted);font-size:11px;letter-spacing:.09em;text-transform:uppercase}
 .hero-card p{margin:28px 0 8px;color:var(--muted)}
@@ -24,11 +25,11 @@ button{color:inherit}
 .metric-card{min-height:230px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px;display:flex;flex-direction:column;justify-content:flex-end}
 .fact-strip span{border:1px solid var(--line);border-radius:999px;padding:10px 14px;color:var(--muted);font-size:13px}
 .signal>span{color:var(--amber);font:11px ui-monospace,monospace}
-.source-note,.demo-note{font-size:11px;color:#7f776f;margin:20px 0 0}
+.source-note,.demo-note{font-size:11px;color:var(--muted);margin:20px 0 0}
 .sticky-title .section-no{display:block;margin-bottom:38px}
 .manifesto-item>span{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.12em}
 .manifesto-item p{grid-column:2;color:var(--muted);margin:0;max-width:650px}
-.quote-stage:hover .quote-track{animation-play-state:paused}
+.quote-stage:hover .quote-track,.quote-stage:focus-within .quote-track{animation-play-state:paused}
 blockquote{margin:0;width:min(560px,78vw);min-height:220px;border:1px solid var(--line);border-radius:22px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;font-size:clamp(25px,3vw,42px);line-height:1.08;letter-spacing:-.035em;background:rgba(255,255,255,.02)}
 .touchpoint i{font-style:normal;color:var(--muted)}
 .touchpoint.muted{color:var(--muted)}
@@ -59,7 +60,7 @@ blockquote{margin:0;width:min(560px,78vw);min-height:220px;border:1px solid var(
 .phone-status{height:42px;display:flex;justify-content:space-between;align-items:center;padding:0 18px;color:#8d867e;font-size:10px}
 .phone-screen h3{font-size:52px;line-height:.92;letter-spacing:-.055em;margin:160px 0 14px}
 .phone-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
-.`hone-sticky{margin-top:8px;background:var(--text);color:#111;border-radius:22px;min-height:56px;padding:0 18px;display:flex;align-items:center;justify-content:space-between;font-weight:600}
+.phone-sticky{margin-top:8px;background:var(--text);color:#111;border-radius:22px;min-height:56px;padding:0 18px;display:flex;align-items:center;justify-content:space-between;font-weight:600}
 .booking-step b{font-size:17px}
 .booking-submit{border:0;background:var(--amber);color:#1a120c;display:flex;justify-content:center;align-items:center;gap:18px;font-weight:700;cursor:pointer}
 .orbit strong{font-size:36px;letter-spacing:-.06em}
@@ -69,7 +70,6 @@ blockquote{margin:0;width:min(560px,78vw);min-height:220px;border:1px solid var(
 .scope-card>span{color:var(--amber);font-size:10px;letter-spacing:.12em}
 .scope-card p{color:var(--muted);margin:0}
 .accordion-row>span{color:var(--muted);font-size:10px}
-.accordion-row>small{grid-column:2/4;display:grid;grid-template-rows:0fr;color:var(--muted);overflow:hidden;opacity:0;transition:.25s;font-size:14px}
 .compare-row{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line)}
 .compare-row.head{font-size:10px;text-transform:uppercase;letter-spacing:.13em}
 .roadmap{background:#13110f}

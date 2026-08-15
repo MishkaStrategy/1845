@@ -1,0 +1,9 @@
+{
+  "name": "1845-commercial-proposal",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "check": "node --check boot.js && node --check script.js && node --check src/content/offer.js && node build.mjs"
+  }
+}

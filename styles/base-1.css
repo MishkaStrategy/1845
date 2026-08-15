@@ -31,6 +31,7 @@
 .manifesto-item{padding:44px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:120px 1fr;gap:28px}
 .voice{background:var(--surface)}
 .quote-stage{overflow:hidden;border-block:1px solid var(--line);padding:26px 0}
+.quote-control{display:flex;justify-content:flex-end;margin-bottom:12px}
 @keyframes marquee{to{transform:translateX(-42%)}}
 .voice-insight{margin-top:38px;display:grid;grid-template-columns:140px 1fr;gap:28px}
 .voice-insight p{font-size:25px;max-width:900px;margin:0}
@@ -56,7 +57,7 @@
 .arch-card h3{font-size:28px;margin:68px 0 10px}
 .flow-line{display:flex;align-items:stretch;gap:12px;overflow-x:auto;padding-bottom:10px;scrollbar-width:thin}
 .flow-line b{font-size:16px;line-height:1.2}
-.flow-hot span{color:#5b351a}
+.flow-hot span{color:#4a2a14}
 .mobile-layout{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center}
 .check-list{list-style:none;padding:0;margin:34px 0 0;max-width:620px}
 .phone-wrap{display:flex;justify-content:center;will-change:transform}
@@ -75,7 +76,7 @@
 .accordion{border-top:1px solid var(--line)}
 .accordion-row>b{font-size:22px}
 .accordion-row>i{font-style:normal;text-align:center;font-size:22px;color:var(--amber)}
-.accordion-row.open>small{grid-template-rows:1fr;opacity:1;padding:8px 0 2px}
+.accordion-panel p{margin:0;max-width:760px}
 .compare-row>*{margin:0;padding:24px}
 .compare-row>*:last-child{background:linear-gradient(90deg,rgba(215,146,75,.05),transparent)}
 .compare-row.head span:last-child{color:var(--amber)}
