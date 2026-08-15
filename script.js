@@ -50,13 +50,27 @@
   document.querySelectorAll('.metric').forEach((el) => metricObserver.observe(el));
 
   document.querySelectorAll('[data-accordion] .accordion-row').forEach((button) => {
+    const panel = document.getElementById(button.getAttribute('aria-controls'));
     button.addEventListener('click', () => {
       const open = button.getAttribute('aria-expanded') === 'true';
       button.setAttribute('aria-expanded', String(!open));
-      button.classList.toggle('open', !open);
+      if (panel) panel.hidden = open;
       const icon = button.querySelector('i');
       if (icon) icon.textContent = open ? '+' : '−';
     });
+  });
+
+  const marqueeToggle = document.querySelector('.marquee-toggle');
+  const quoteStage = document.querySelector('.quote-stage');
+  marqueeToggle?.addEventListener('click', () => {
+    const paused = marqueeToggle.getAttribute('aria-pressed') === 'true';
+    marqueeToggle.setAttribute('aria-pressed', String(!paused));
+    marqueeToggle.textContent = paused ? 'Пауза движения' : 'Продолжить движение';
+    quoteStage?.classList.toggle('is-paused', !paused);
+  });
+
+  document.querySelector('.skip-link')?.addEventListener('click', () => {
+    requestAnimationFrame(() => document.getElementById('main')?.focus({ preventScroll: true }));
   });
 
   let ticking = false;

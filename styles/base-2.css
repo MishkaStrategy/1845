@@ -29,6 +29,8 @@ body{margin:0;background:var(--bg);color:var(--text);overflow-x:hidden;font-size
 .manifesto-item h3{font-size:34px;line-height:1.1;letter-spacing:-.035em;margin:0}
 .manifesto-item.accent h3{color:var(--amber)}
 .quote-track{display:flex;width:max-content;gap:18px;animation:marquee 36s linear infinite}
+.quote-stage.is-paused .quote-track{animation-play-state:paused}
+.marquee-toggle{min-height:44px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--muted);padding:8px 14px;cursor:pointer;font-size:11px}
 blockquote small{font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
 .voice-insight span{color:var(--amber);font-size:11px;letter-spacing:.12em}
 .gap{background:#12110f}
@@ -70,7 +72,10 @@ blockquote small{font-size:10px;color:var(--muted);letter-spacing:.08em;text-tra
 .orbit-node.n3{left:10%;bottom:10%}
 .scope-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .scope-card h3{font-size:31px;margin:82px 0 12px}
-.accordion-row{width:100%;border:0;border-bottom:1px solid var(--line);background:none;text-align:left;display:grid;grid-template-columns:80px 1fr 40px;gap:16px;padding:24px 0;cursor:pointer;align-items:center}
+.accordion-item{border-bottom:1px solid var(--line)}
+.accordion-row{width:100%;border:0;background:none;text-align:left;display:grid;grid-template-columns:80px 1fr 40px;gap:16px;padding:24px 0;cursor:pointer;align-items:center}
+.accordion-panel{padding:0 0 24px 96px;color:var(--muted);font-size:14px}
+.accordion-panel[hidden]{display:none}
 .compare-table{border-top:1px solid var(--line)}
 .compare-row>*:first-child{border-right:1px solid var(--line);color:var(--muted)}
 .compare-row.head span:first-child{color:var(--muted)}
