@@ -39,8 +39,8 @@ jobs:
           new='''<div class="nixie3d" role="img" aria-label="18:45 — пять интерактивных трёхмерных Nixie-ламп, включая отдельную лампу двоеточия"><div class="nixie3d-scene"><div class="nixie3d-shadow"></div>'''+tube('1')+tube('8')+colon+tube('4')+tube('5')+'''</div><p class="nixie3d-caption"><b>18:45</b> · момент, когда город остаётся снаружи</p></div>'''
           if old not in s: raise SystemExit('Hero marker not found')
           s=s.replace(old,new,1)
-          s=s.replace('</head>','<link rel="stylesheet" href="./nixie-hero.css?v=7"></head>',1)
-          s=s.replace('</body>','<script src="./nixie-3d.js?v=7"></script></body>',1)
+          s=s.replace('</head>','<link rel="stylesheet" href="./nixie-hero.css?v=8"></head>',1)
+          s=s.replace('</body>','<script src="./nixie-3d.js?v=8"></script></body>',1)
           p.write_text(s)
           PY
       - name: Publish dist to gh-pages
