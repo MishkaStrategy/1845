@@ -4,6 +4,7 @@
   const progress = document.querySelector('.scroll-progress span');
   const cursor = document.querySelector('.cursor-glow');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const parallaxNodes = [...document.querySelectorAll('[data-parallax]')];
 
   const offer = window.OFFER || {};
   const bind = (id, value) => {
@@ -14,6 +15,29 @@
   bind('offer-timeline', offer.timeline);
   bind('offer-payment', offer.payment);
   bind('offer-package', offer.package);
+
+  const hero = document.querySelector('.hero');
+  const heroTime = document.querySelector('.hero-time');
+  const timeParts = heroTime ? [...heroTime.querySelectorAll('.time-part')] : [];
+  if (hero && heroTime && timeParts.length === 2) {
+    if (reduceMotion) {
+      hero.classList.add('is-evening');
+    } else {
+      const sequence = ['18:31', '18:42', '18:44', '18:45'];
+      sequence.forEach((value, index) => {
+        window.setTimeout(() => {
+          const [hours, minutes] = value.split(':');
+          heroTime.classList.add('is-shifting');
+          window.setTimeout(() => {
+            timeParts[0].textContent = hours;
+            timeParts[1].textContent = minutes;
+            heroTime.classList.remove('is-shifting');
+            if (value === '18:45') hero.classList.add('is-evening');
+          }, 150);
+        }, 260 + index * 620);
+      });
+    }
+  }
 
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -80,12 +104,12 @@
     requestAnimationFrame(() => {
       const max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
       const p = Math.min(1, Math.max(0, scrollY / max));
-      progress.style.transform = `scaleX(${p})`;
+      if (progress) progress.style.transform = `scaleX(${p})`;
       root.style.setProperty('--scroll', p.toFixed(4));
       root.style.setProperty('--heat', Math.min(1, p * 1.55).toFixed(3));
 
       if (!reduceMotion) {
-        document.querySelectorAll('[data-parallax]').forEach((el) => {
+        parallaxNodes.forEach((el) => {
           const r = el.getBoundingClientRect();
           const ratio = Number(el.dataset.parallax || 0.05);
           const y = (innerHeight * 0.5 - (r.top + r.height * 0.5)) * ratio;
@@ -98,7 +122,7 @@
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  if (!reduceMotion && matchMedia('(pointer:fine)').matches) {
+  if (!reduceMotion && matchMedia('(pointer:fine)').matches && cursor) {
     addEventListener('pointermove', (e) => {
       cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
       cursor.classList.add('active');

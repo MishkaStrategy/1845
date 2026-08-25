@@ -1,92 +1,79 @@
-<section class="section mobile" id="mobile">
-<div class="shell mobile-layout">
-<div class="mobile-copy reveal">
-<span class="section-no">09</span><p class="eyebrow">Mobile first</p><h2>Вечер выбирают с телефона.</h2>
-<p>На мобильном не нужен уменьшенный desktop. Нужна другая приоритизация: атмосфера → ключевые возможности → маршрут → бронь.</p>
-<ul class="check-list"><li>sticky CTA «Забронировать»</li><li>меню без PDF-лабиринта</li><li>карта и парковка в один тап</li><li>Telegram / WhatsApp / звонок</li><li>touch targets от 44 px</li></ul>
+<section class="section channel" id="telegram">
+<div class="shell channel-layout">
+<div class="channel-copy reveal">
+<span class="section-no">09</span><p class="eyebrow">Telegram / диалог</p><h2>Не вести гостя в ещё один кабинет.</h2>
+<p class="channel-lead">Bot + Mini App — быстрый слой между «хочу зайти» и «мы уже общаемся». Он живёт там, где человек уже привык получать сообщения и возвращаться к диалогу.</p>
+<div class="value-stack">
+<article><span>До визита</span><b>Бронь и быстрый вопрос</b><p>Дата, время, количество гостей, VIP-запрос или связь с командой без длинной формы.</p></article>
+<article><span>В течение недели</span><b>События и актуальные поводы</b><p>Афиша, специальные вечера и изменения в меню — только по выбранным подпискам, без спама.</p></article>
+<article><span>После визита</span><b>Повторный контакт</b><p>Сохранённый профиль, история заявок и персональные предложения — если для бизнеса это действительно нужно.</p></article>
 </div>
-<div class="phone-wrap reveal" data-parallax="0.05">
-<div class="phone-shell">
-<div class="phone-status"><span>18:45</span><span>● ● ●</span></div>
-<div class="phone-screen">
-<small>1845 / NOVOSIBIRSK</small>
-<h3>Пора<br/>переключиться.</h3>
-<p>Большевистская, 132</p>
-<div class="phone-card"><span>Сегодня</span><b>11:00 — 04:00</b></div>
-<div class="phone-nav"><span>Пространство</span><span>Меню</span><span>Компания</span></div>
 </div>
-<div class="phone-sticky">Забронировать <span>→</span></div>
+<div class="telegram-prototype reveal" aria-label="Прототип Telegram Mini App">
+<div class="tg-chrome"><span>18:45</span><b>1845</b><i>•••</i></div>
+<div class="tg-screen">
+<small>ВАШ ВЕЧЕР / НОВОСИБИРСК</small>
+<h3>Что нужно<br/>сегодня?</h3>
+<div class="tg-actions" aria-hidden="true"><span>Забронировать</span><span>Посмотреть меню</span><span>Что происходит</span></div>
+<div class="tg-card"><span>Большевистская, 132</span><b>11:00 — 04:00</b><i>Маршрут →</i></div>
+</div>
+<p class="demo-note">Концепт интерфейса. Финальный набор функций определяется после проверки текущих процессов бронирования и CRM.</p>
+</div>
+</div>
+</section>
+<section class="section app-layer" id="app">
+<div class="shell">
+<div class="section-head reveal"><span class="section-no">10</span><div><p class="eyebrow">Mobile app / постоянный гость</p><h2>Приложение — не первая точка контакта. Оно заслуживается.</h2></div><p class="section-intro">Скачивание имеет смысл, когда у гостя уже есть отношения с 1845. Поэтому приложение — следующий слой после сайта и Telegram, а не дубликат этих каналов.</p></div>
+<div class="app-stage">
+<div class="app-phone reveal" data-parallax="0.045">
+<div class="app-phone-top"><span>18:45</span><span>● ● ●</span></div>
+<div class="app-phone-body"><small>GOOD EVENING</small><h3>Снова<br/>в 1845?</h3><div class="app-pass"><span>PROFILE / 1845</span><b>Ваш вечер</b><i>Бронь · события · статус</i></div><nav aria-label="Прототип навигации"><span>Главная</span><span>Бронь</span><span>Профиль</span></nav></div>
+</div>
+<div class="app-logic reveal">
+<article><span>01</span><h3>Один профиль</h3><p>Контакты и предпочтения — только при явном согласии и с понятной пользой для гостя.</p></article>
+<article><span>02</span><h3>Бронь без повторов</h3><p>Постоянному гостю не нужно каждый раз заново сообщать базовые данные.</p></article>
+<article><span>03</span><h3>Loyalty без пластика</h3><p>Уровни, бонусы или приглашения можно подключить после выбора реальной механики лояльности.</p></article>
+<article><span>04</span><h3>Push по делу</h3><p>Не «ещё один рекламный канал», а полезные события: подтверждение брони, статус, релевантные поводы.</p></article>
 </div>
 </div>
 </div>
 </section>
-<section class="section booking" id="booking">
-<div class="shell">
-<div class="section-head reveal"><span class="section-no">10</span><div><p class="eyebrow">Бронирование</p><h2>Четыре поля. Никакого квеста.</h2></div><p class="section-intro">Финальная интеграция зависит от выбранной системы: Telegram, CRM или сервис бронирования. Архитектура остаётся готовой к любому из вариантов.</p></div>
-<div class="booking-demo reveal">
-<div class="booking-step active"><span>01</span><p>Дата</p><b>Сегодня</b></div>
-<div class="booking-step"><span>02</span><p>Время</p><b>20:30</b></div>
-<div class="booking-step"><span>03</span><p>Гости</p><b>4 человека</b></div>
-<div class="booking-step"><span>04</span><p>Контакт</p><b>+7 ··· ··· ·· ··</b></div>
-<button aria-label="Демонстрация кнопки подтверждения бронирования" class="booking-submit" type="button">Подтвердить <span>→</span></button>
-</div>
-<p class="demo-note reveal">Это интерфейсный прототип внутри предложения, не действующая форма бронирования.</p>
-</div>
-</section>
-<section class="section ecosystem" id="ecosystem">
-<div class="shell">
-<div class="section-head compact reveal"><span class="section-no">11</span><div><p class="eyebrow">Digital contour</p><h2>Не отдельный сайт. Одна система.</h2></div></div>
-<div aria-label="Digital-система 1845" class="orbit-diagram reveal">
-<div class="orbit center"><strong>1845</strong><span>website</span></div>
-<div class="orbit-node n1"><b>Search</b><span>Яндекс / Google</span></div>
-<div class="orbit-node n2"><b>Maps</b><span>2ГИС / Яндекс</span></div>
-<div class="orbit-node n3"><b>Social</b><span>Telegram / social</span></div>
-<div class="orbit-node n4"><b>Analytics</b><span>источник → действие</span></div>
-<svg aria-hidden="true" viewbox="0 0 800 420"><ellipse cx="400" cy="210" rx="310" ry="145"></ellipse><ellipse cx="400" cy="210" rx="205" ry="95"></ellipse></svg>
+<section class="section network" id="network">
+<div class="shell network-layout">
+<div class="network-copy reveal"><span class="section-no">11</span><p class="eyebrow">Network layer / инфраструктура</p><h2>Сервис начинается раньше интерфейса.</h2><p>Сетевой слой на уровне роутера — отдельная инженерная работа: стабильный доступ к необходимым сервисам для заведения, команды и digital-инструментов, без установки решений на каждое устройство.</p><div class="network-note"><b>Важная рамка</b><p>Конкретная конфигурация выбирается только после аудита оборудования, требований безопасности, провайдера и применимого законодательства. Не предлагаем «магическую коробку» и не ослабляем базовую сетевую защиту ради обходного сценария.</p></div></div>
+<div class="network-diagram reveal" aria-label="Схема инфраструктурного слоя">
+<div class="router-core"><small>1845 / ROUTER</small><strong>01</strong><span>policy layer</span></div>
+<div class="network-line l1"><span>Команда</span><i></i><b>рабочие сервисы</b></div>
+<div class="network-line l2"><span>Digital</span><i></i><b>bot / app / CRM</b></div>
+<div class="network-line l3"><span>Гости</span><i></i><b>изолированный Wi-Fi</b></div>
+<div class="network-line l4"><span>Control</span><i></i><b>резерв / журналирование</b></div>
 </div>
 </div>
 </section>
-<section class="section scope" id="scope">
+<section class="section system" id="system">
 <div class="shell">
-<div class="section-head reveal"><span class="section-no">12</span><div><p class="eyebrow">Что предлагаем</p><h2>От смысла до production.</h2></div></div>
-<div class="scope-grid">
-<article class="scope-card reveal"><span>STRATEGY</span><h3>Стратегия</h3><p>Аудит, позиционирование, customer journeys, структура.</p></article>
-<article class="scope-card reveal"><span>UX</span><h3>UX</h3><p>Архитектура, прототип, mobile-first flows, сценарий брони.</p></article>
-<article class="scope-card reveal"><span>DESIGN</span><h3>Design</h3><p>Web-айдентика 18:45, UI-kit, responsive, motion direction.</p></article>
-<article class="scope-card reveal"><span>DEV</span><h3>Development</h3><p>Production frontend, адаптив, оптимизация, analytics-ready структура.</p></article>
-<article class="scope-card reveal"><span>CONTENT</span><h3>Content</h3><p>Тексты, структура фотосъёмки, metadata, контентные шаблоны.</p></article>
-<article class="scope-card reveal"><span>LAUNCH</span><h3>Launch</h3><p>Формы, аналитика, тестирование, домен и публикация.</p></article>
+<div class="section-head compact reveal"><span class="section-no">12</span><div><p class="eyebrow">Единая система</p><h2>Четыре слоя. Один вечер.</h2></div></div>
+<div class="system-journey reveal" aria-label="Digital-путь гостя 1845">
+<article class="system-node primary"><span>01 / FIND</span><h3>Сайт</h3><p>Понять место. Почувствовать атмосферу. Забронировать.</p></article>
+<i aria-hidden="true">→</i>
+<article class="system-node"><span>02 / TALK</span><h3>Telegram</h3><p>Продолжить диалог. Получать актуальное. Вернуться в один тап.</p></article>
+<i aria-hidden="true">→</i>
+<article class="system-node"><span>03 / STAY</span><h3>App</h3><p>Получить персональный слой после того, как отношения уже появились.</p></article>
 </div>
+<div class="system-base reveal"><span>INFRASTRUCTURE / NETWORK LAYER</span><b>Стабильный технический фундамент под командой и digital-сервисами.</b></div>
+<div class="system-principle reveal"><span>Принцип</span><p>Не заставлять каждого гостя пользоваться всеми четырьмя продуктами. <strong>Давать ровно тот слой, который полезен на его этапе отношений с 1845.</strong></p></div>
 </div>
 </section>
-<section class="section modules" id="modules">
+<section class="section outcomes" id="outcomes">
 <div class="shell">
-<div class="section-head compact reveal"><span class="section-no">13</span><div><p class="eyebrow">Опциональные модули</p><h2>Подключаем по бизнес-задаче.</h2></div></div>
-<div class="accordion" data-accordion="">
-<div class="accordion-item reveal">
-<button aria-controls="module-panel-1" aria-expanded="false" class="accordion-row" id="module-trigger-1" type="button"><span>01</span><b>Онлайн-бронь + VIP booking</b><i aria-hidden="true">+</i></button>
-<div aria-labelledby="module-trigger-1" class="accordion-panel" hidden id="module-panel-1" role="region"><p>Интеграция с подтверждением, отдельные сценарии VIP и групп.</p></div>
-</div>
-<div class="accordion-item reveal">
-<button aria-controls="module-panel-2" aria-expanded="false" class="accordion-row" id="module-trigger-2" type="button"><span>02</span><b>Афиша + акции</b><i aria-hidden="true">+</i></button>
-<div aria-labelledby="module-trigger-2" class="accordion-panel" hidden id="module-panel-2" role="region"><p>События, happy hours и временные предложения без пересборки сайта.</p></div>
-</div>
-<div class="accordion-item reveal">
-<button aria-controls="module-panel-3" aria-expanded="false" class="accordion-row" id="module-trigger-3" type="button"><span>03</span><b>Birthday landing</b><i aria-hidden="true">+</i></button>
-<div aria-labelledby="module-trigger-3" class="accordion-panel" hidden id="module-panel-3" role="region"><p>Отдельный маршрут для дня рождения: формат, посадка, кухня, запрос.</p></div>
-</div>
-<div class="accordion-item reveal">
-<button aria-controls="module-panel-4" aria-expanded="false" class="accordion-row" id="module-trigger-4" type="button"><span>04</span><b>Menu system</b><i aria-hidden="true">+</i></button>
-<div aria-labelledby="module-trigger-4" class="accordion-panel" hidden id="module-panel-4" role="region"><p>Управляемое меню по категориям, без тяжёлого PDF как единственного сценария.</p></div>
-</div>
-<div class="accordion-item reveal">
-<button aria-controls="module-panel-5" aria-expanded="false" class="accordion-row" id="module-trigger-5" type="button"><span>05</span><b>Telegram / CRM</b><i aria-hidden="true">+</i></button>
-<div aria-labelledby="module-trigger-5" class="accordion-panel" hidden id="module-panel-5" role="region"><p>Передача заявок и событий туда, где команда действительно работает.</p></div>
-</div>
-<div class="accordion-item reveal">
-<button aria-controls="module-panel-6" aria-expanded="false" class="accordion-row" id="module-trigger-6" type="button"><span>06</span><b>Analytics + local SEO</b><i aria-hidden="true">+</i></button>
-<div aria-labelledby="module-trigger-6" class="accordion-panel" hidden id="module-panel-6" role="region"><p>UTM, цели, карты, локальные страницы и связка источников с действиями.</p></div>
-</div>
+<div class="section-head reveal"><span class="section-no">13</span><div><p class="eyebrow">Что получает бизнес</p><h2>Технологии переводим в управляемые точки роста.</h2></div><p class="section-intro">Без обещаний процентов. У каждого слоя должна быть понятная бизнес-роль и измеримый следующий шаг.</p></div>
+<div class="business-grid">
+<article class="business-card reveal"><span>DIRECT</span><h3>Больше прямых бронирований</h3><p>Карты и social приводят к собственному сценарию брони, а не заканчиваются на информационной карточке.</p></article>
+<article class="business-card reveal"><span>DATA</span><h3>Собственная база контактов</h3><p>Только с согласием пользователя и понятной причиной оставить данные.</p></article>
+<article class="business-card reveal"><span>RETENTION</span><h3>Повторный контакт</h3><p>Telegram и приложение создают путь обратно без новой поисковой сессии.</p></article>
+<article class="business-card reveal"><span>AUTOMATION</span><h3>Меньше ручной рутины</h3><p>Повторяющиеся вопросы, заявки и уведомления можно маршрутизировать по единым правилам.</p></article>
+<article class="business-card reveal"><span>BRAND</span><h3>Свой digital-код</h3><p>18:45 связывает сайт, Telegram и приложение одним узнаваемым языком.</p></article>
+<article class="business-card reveal"><span>MEASURE</span><h3>Основа для маркетинга</h3><p>Источник → сценарий → действие → повторный визит можно собирать в одну аналитическую модель.</p></article>
 </div>
 </div>
 </section>
