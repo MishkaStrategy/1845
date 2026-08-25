@@ -1,0 +1,1 @@
+Pixel-matched hero revision based on the approved 1536×1024 reference. The first screen preserves the reference composition and adds live random Nixie flicker plus clickable navigation hotspots.
