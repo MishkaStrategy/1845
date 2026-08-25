@@ -27,16 +27,19 @@ jobs:
           mkdir -p dist/1845-commercial-concept
           cp 1845-commercial-concept/index.html dist/1845-commercial-concept/index.html
           cp 1845-commercial-concept/nixie-hero.css dist/1845-commercial-concept/nixie-hero.css
+          cp 1845-commercial-concept/nixie-3d.js dist/1845-commercial-concept/nixie-3d.js
           python3 - <<'PY'
           from pathlib import Path
-          p = Path('dist/1845-commercial-concept/index.html')
-          s = p.read_text()
-          old = '<div class="door" id="door"><div class="panel l"></div><div class="panel r"></div><strong>1845</strong></div>'
-          new = '''<div class="nixie-stage" role="img" aria-label="18:45 — светящиеся газоразрядные Nixie-индикаторы"><div class="nixie-clock" aria-hidden="true"><div class="nixie-tube"><span class="nixie-digit" data-digit="1">1</span></div><div class="nixie-tube"><span class="nixie-digit" data-digit="8">8</span></div><span class="nixie-colon"><i></i><i></i></span><div class="nixie-tube"><span class="nixie-digit" data-digit="4">4</span></div><div class="nixie-tube"><span class="nixie-digit" data-digit="5">5</span></div></div><div class="nixie-base" aria-hidden="true"></div><p class="nixie-caption"><b>18:45</b> · момент, когда город остаётся снаружи</p></div>'''
-          if old not in s:
-              raise SystemExit('Hero door marker not found')
-          s = s.replace(old, new, 1)
-          s = s.replace('</head>', '<link rel="stylesheet" href="./nixie-hero.css?v=5"></head>', 1)
+          p=Path('dist/1845-commercial-concept/index.html')
+          s=p.read_text()
+          old='<div class="door" id="door"><div class="panel l"></div><div class="panel r"></div><strong>1845</strong></div>'
+          def tube(d):
+              return f'''<div class="n3-tube"><div class="n3-cathode-stack"><span class="n3-ghost g1">{d}</span><span class="n3-ghost g2">{d}</span><span class="n3-live" data-digit="{d}">{d}</span></div><div class="n3-electrodes"></div><div class="n3-glass"></div><div class="n3-base"></div></div>'''
+          new='''<div class="nixie3d" role="img" aria-label="18:45 — интерактивная трёхмерная Nixie-инсталляция"><div class="nixie3d-scene"><div class="nixie3d-shadow"></div>'''+tube('1')+tube('8')+'''<span class="n3-colon"><i></i><i></i></span>'''+tube('4')+tube('5')+'''</div><p class="nixie3d-caption"><b>18:45</b> · момент, когда город остаётся снаружи</p></div>'''
+          if old not in s: raise SystemExit('Hero marker not found')
+          s=s.replace(old,new,1)
+          s=s.replace('</head>','<link rel="stylesheet" href="./nixie-hero.css?v=6"></head>',1)
+          s=s.replace('</body>','<script src="./nixie-3d.js?v=6"></script></body>',1)
           p.write_text(s)
           PY
       - name: Publish dist to gh-pages
