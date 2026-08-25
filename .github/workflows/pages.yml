@@ -45,12 +45,13 @@ jobs:
           PY
       - name: Validate and stage Nixie showcase
         run: |
-          node 1845-nixie-showcase/qa.mjs
+          node 1845-nixie-showcase/qa-test.mjs
           node --check 1845-nixie-showcase/script.js
           mkdir -p dist/1845-nixie-showcase
-          cp 1845-nixie-showcase/index.html dist/1845-nixie-showcase/index.html
-          cp 1845-nixie-showcase/styles.css dist/1845-nixie-showcase/styles.css
-          cp 1845-nixie-showcase/script.js dist/1845-nixie-showcase/script.js
+          rsync -a --delete \
+            --exclude=qa-test.mjs \
+            --exclude=PIXEL_MATCH_NOTE.md \
+            1845-nixie-showcase/ dist/1845-nixie-showcase/
       - name: Publish dist to gh-pages
         run: |
           git config user.name "github-actions[bot]"
