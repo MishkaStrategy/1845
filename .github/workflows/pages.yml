@@ -36,7 +36,7 @@ jobs:
           if old not in s:
               raise SystemExit('Hero door marker not found')
           s = s.replace(old, new, 1)
-          s = s.replace('</head>', '<link rel="stylesheet" href="./nixie-hero.css?v=3"></head>', 1)
+          s = s.replace('</head>', '<link rel="stylesheet" href="./nixie-hero.css?v=5"></head>', 1)
           p.write_text(s)
           PY
       - name: Publish dist to gh-pages
