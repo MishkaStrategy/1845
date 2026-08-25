@@ -1,1 +1,0 @@
-(()=>{'use strict';const base=new URL('.',document.currentScript.src);const css=document.createElement('link');css.rel='stylesheet';css.href=new URL('nixie-hero.css',base).href;document.head.append(css);const js=document.createElement('script');js.src=new URL('nixie-hero.js',base).href;js.defer=true;document.head.append(js)})();
