@@ -1,0 +1,13 @@
+@media(max-width:1050px){.desktop-nav{display:none}.header{grid-template-columns:1fr auto}.header-cta{display:none}.menu{display:block;width:46px;height:46px;background:transparent;border:0}.menu span{display:block;width:24px;height:1px;background:#ddd;margin:7px auto}.nixie-rig{left:5%;right:5%;top:17%;height:37%;gap:1.5%}.bottom-grid{left:6%;right:6%;bottom:8%;height:31%;grid-template-columns:1fr 1fr}.headline-block{grid-column:1}.intro{grid-column:2}.ecosystem{display:none}.headline-block h1{font-size:clamp(48px,6vw,72px)}.social{display:none}}
+@media(max-width:720px){.hero{height:auto;min-height:100svh;padding-bottom:70px}.header{height:90px;padding:20px}.logo span{font-size:36px}.nixie-rig{position:relative;left:auto;right:auto;top:auto;height:47svh;min-height:380px;margin:120px 12px 0;gap:5px}.tube{min-width:0}.mesh{background-size:8px 14px}.digit{left:9%;width:82%}.base{left:-4%;right:-4%}.bottom-grid{position:relative;left:auto;right:auto;bottom:auto;height:auto;margin:26px 20px 0;display:block}.headline-block h1{font-size:clamp(47px,14vw,68px)}.intro{font-size:12px;margin-top:25px}.headline-row{gap:15px;flex-direction:column;align-items:stretch;margin-top:28px}.primary-cta{width:100%}.secondary-cta{padding:12px 0}.scroll{display:none}.light-section,.dark-section,.contact{padding:90px 20px}.light-section h2,.dark-section h2,.contact h2{font-size:50px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.nixie-rig{transition:none!important}.tube .live{transition:none!important}}
+@media(max-width:1050px){
+  .desktop-nav{display:flex;position:fixed;inset:0;background:rgba(4,3,2,.97);backdrop-filter:blur(18px);flex-direction:column;justify-content:center;align-items:flex-start;padding:100px 32px;gap:0;opacity:0;pointer-events:none;transform:translateY(-10px);transition:opacity .25s ease,transform .25s ease;z-index:-1}
+  .desktop-nav a{width:100%;font:400 clamp(34px,8vw,60px)/1.15 var(--serif);text-transform:none;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1);color:#e1d6c5}
+  .desktop-nav a:first-child i{display:none}
+  .header.menu-open .desktop-nav{opacity:1;pointer-events:auto;transform:none}
+  .menu{position:relative;z-index:2}
+  .menu span{transition:transform .25s ease,opacity .25s ease}
+  .header.menu-open .menu span:first-child{transform:translateY(4px) rotate(45deg)}
+  .header.menu-open .menu span:last-child{transform:translateY(-4px) rotate(-45deg)}
+}

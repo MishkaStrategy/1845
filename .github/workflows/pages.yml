@@ -28,7 +28,7 @@ jobs:
           cp 1845-commercial-concept/index.html dist/1845-commercial-concept/index.html
           cp 1845-commercial-concept/nixie-hero.css dist/1845-commercial-concept/nixie-hero.css
           cp 1845-commercial-concept/nixie-3d.js dist/1845-commercial-concept/nixie-3d.js
-          python3 - <<'PY'
+          python3 - <<'PY2'
           from pathlib import Path
           p=Path('dist/1845-commercial-concept/index.html')
           s=p.read_text()
@@ -42,15 +42,15 @@ jobs:
           s=s.replace('</head>','<link rel="stylesheet" href="./nixie-hero.css?v=8"></head>',1)
           s=s.replace('</body>','<script src="./nixie-3d.js?v=8"></script></body>',1)
           p.write_text(s)
-          PY
+          PY2
       - name: Validate and stage Nixie showcase
         run: |
-          node 1845-nixie-showcase/qa-test.mjs
+          node 1845-nixie-showcase/qa.mjs
           node --check 1845-nixie-showcase/script.js
           mkdir -p dist/1845-nixie-showcase
           rsync -a --delete \
-            --exclude=qa-test.mjs \
-            --exclude=PIXEL_MATCH_NOTE.md \
+            --exclude=qa.mjs \
+            --exclude=AUDIT.md \
             1845-nixie-showcase/ dist/1845-nixie-showcase/
       - name: Publish dist to gh-pages
         run: |
