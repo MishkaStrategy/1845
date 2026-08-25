@@ -22,6 +22,10 @@ jobs:
           fetch-depth: 0
       - name: Syntax check and production build
         run: npm run check
+      - name: Stage standalone commercial concept
+        run: |
+          mkdir -p dist/1845-commercial-concept
+          cp 1845-commercial-concept/index.html dist/1845-commercial-concept/index.html
       - name: Publish dist to gh-pages
         run: |
           git config user.name "github-actions[bot]"
