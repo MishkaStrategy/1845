@@ -27,13 +27,16 @@ jobs:
           mkdir -p dist/1845-commercial-concept
           cp 1845-commercial-concept/index.html dist/1845-commercial-concept/index.html
           cp 1845-commercial-concept/nixie-hero.css dist/1845-commercial-concept/nixie-hero.css
-          cp 1845-commercial-concept/nixie-hero.js dist/1845-commercial-concept/nixie-hero.js
-          cp 1845-commercial-concept/nixie-loader.js dist/1845-commercial-concept/nixie-loader.js
           python3 - <<'PY'
           from pathlib import Path
           p = Path('dist/1845-commercial-concept/index.html')
           s = p.read_text()
-          s = s.replace('</body>', '<script src="./nixie-loader.js"></script></body>')
+          old = '<div class="door" id="door"><div class="panel l"></div><div class="panel r"></div><strong>1845</strong></div>'
+          new = '''<div class="nixie-stage" role="img" aria-label="18:45 — светящиеся газоразрядные Nixie-индикаторы"><div class="nixie-clock" aria-hidden="true"><div class="nixie-tube"><span class="nixie-digit" data-digit="1">1</span></div><div class="nixie-tube"><span class="nixie-digit" data-digit="8">8</span></div><span class="nixie-colon"><i></i><i></i></span><div class="nixie-tube"><span class="nixie-digit" data-digit="4">4</span></div><div class="nixie-tube"><span class="nixie-digit" data-digit="5">5</span></div></div><div class="nixie-base" aria-hidden="true"></div><p class="nixie-caption"><b>18:45</b> · момент, когда город остаётся снаружи</p></div>'''
+          if old not in s:
+              raise SystemExit('Hero door marker not found')
+          s = s.replace(old, new, 1)
+          s = s.replace('</head>', '<link rel="stylesheet" href="./nixie-hero.css?v=3"></head>', 1)
           p.write_text(s)
           PY
       - name: Publish dist to gh-pages
