@@ -43,6 +43,14 @@ jobs:
           s=s.replace('</body>','<script src="./nixie-3d.js?v=8"></script></body>',1)
           p.write_text(s)
           PY
+      - name: Validate and stage Nixie showcase
+        run: |
+          node 1845-nixie-showcase/qa.mjs
+          node --check 1845-nixie-showcase/script.js
+          mkdir -p dist/1845-nixie-showcase
+          cp 1845-nixie-showcase/index.html dist/1845-nixie-showcase/index.html
+          cp 1845-nixie-showcase/styles.css dist/1845-nixie-showcase/styles.css
+          cp 1845-nixie-showcase/script.js dist/1845-nixie-showcase/script.js
       - name: Publish dist to gh-pages
         run: |
           git config user.name "github-actions[bot]"
