@@ -52,6 +52,15 @@ jobs:
             --exclude=qa.mjs \
             --exclude=AUDIT.md \
             1845-nixie-showcase/ dist/1845-nixie-showcase/
+      - name: Validate and stage Lounge 1845
+        run: |
+          node --check lounge-1845/script.js
+          test -f lounge-1845/index.html
+          test -f lounge-1845/styles.css
+          mkdir -p dist/lounge-1845
+          rsync -a --delete \
+            --exclude=README.md \
+            lounge-1845/ dist/lounge-1845/
       - name: Publish dist to gh-pages
         run: |
           git config user.name "github-actions[bot]"
